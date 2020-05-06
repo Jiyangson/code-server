@@ -6,6 +6,11 @@ main() {
   source ./ci/lib.sh
 
   if [[ $(arch) == arm64 ]]; then
+    if [[ $CI ]]; then
+      sudo apt-get update
+      sudo apt-get install -y jq
+    fi
+
     # This, strangely enough, fixes the arm build being terminated for not having
     # output on Travis. It's as if output is buffered and only displayed once a
     # certain amount is collected. Five seconds didn't work but one second seems

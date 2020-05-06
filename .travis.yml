@@ -53,3 +53,8 @@ cache:
   yarn: true
   directories:
     - lib/vscode/.build/extensions
+
+addons:
+  homebrew:
+    packages:
+      - jq
